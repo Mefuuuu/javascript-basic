@@ -2,9 +2,18 @@ console.log(`#24 Callbacks hay Call Me Later - Chạy Theo Thứ Tự`)
 
 let sum = (a, b, Callbacks) => {
     let tong = a + b;
-    setTimeout(() => {
+    // setTimeout(() => {
+    //     Callbacks(tong);
+    // }, 5000);
+
+    let i = 0;
+    let timer = setInterval(() => {
         Callbacks(tong);
-    }, 5000);
+        i++;
+        if(i === 5){
+            clearInterval(timer);
+        }
+    }, 1000);
 }
 
 let printSum = (message) => {
